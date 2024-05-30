@@ -1,10 +1,6 @@
 <script setup>
 import router from '@/router'
 import Navbar from '@/components/Nav_Bar.vue'
-
-function rota() {
-  router.push('/premio')
-}
 </script>
 
 <script>
@@ -14,6 +10,12 @@ export default {
   data() {
     return {
       premios: null
+    }
+  },
+  methods: {
+    rota: function (premio) {
+      router.push('/premio')
+      localStorage.setItem('idPremio', JSON.stringify(premio.id))
     }
   },
   mounted() {
@@ -35,7 +37,7 @@ export default {
   </div>
   <div id="listaPremios">
     <div class="d-flex flex-column gap-4 mt-3">
-      <div class="list" v-for="premio in premios" :key="premio.id" @click="rota">
+      <div class="list" v-for="premio in premios" :key="premio.id" @click="rota(premio)">
         <div id="informacao">
           <h4>{{ premio.nome }}</h4>
           <p>Creditos: {{ premio.creditos }}</p>

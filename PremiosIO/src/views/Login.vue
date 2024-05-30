@@ -2,31 +2,20 @@
 import router from '@/router'
 
 let callback = async (response) => {
-  if (response.credential) {
-    // Decode the JWT
-    const base64Url = response.credential.split('.')[1]
-    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
-    const payload = JSON.parse(window.atob(base64))
+  if (!response.credential) {
+    console.log('JWT is not valid.')
+    return
+  }
 
-    // Verify the JWT
-    if (
-      payload.aud === '415034066399-imnm6opf083t2dptfdvratlgp6p89tfh.apps.googleusercontent.com'
-    ) {
-      const gestores = JSON.parse(localStorage.getItem('GESTORES'))
-      gestores.forEach((gestor) => {
-        if (gestor.email == payload.email) {
-          sessionStorage.setItem('nome', payload.name)
-          sessionStorage.setItem('email', payload.email)
-          sessionStorage.setItem('imagem', payload.picture)
-          router.push('/home')
-        }
-      })
-    } else {
-      console.log('JWT is not valid.')
-    }
-  } else {
-    // The login was not successful
-    console.error('Google Sign-In error:', response)
+  const payload = JSON.parse(atob(response.credential.split('.')[1]))
+  const utilizadores = JSON.parse(localStorage.getItem('Utilizadores')) || []
+  const utilizador = utilizadores.find((u) => u.email === payload.email)
+
+  if (utilizador) {
+    sessionStorage.setItem('nome', payload.name)
+    sessionStorage.setItem('email', payload.email)
+    sessionStorage.setItem('imagem', payload.picture)
+    router.push('/home')
   }
 }
 </script>

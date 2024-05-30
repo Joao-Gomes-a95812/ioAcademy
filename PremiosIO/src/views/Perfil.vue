@@ -22,6 +22,7 @@ export default {
       }
     }
   },
+  methods: {},
   mounted() {
     this.user.name = sessionStorage.getItem('nome')
     this.user.email = sessionStorage.getItem('email')

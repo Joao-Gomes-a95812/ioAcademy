@@ -13,7 +13,7 @@ const select0 = () => {
 
   if (routeName == 'home') {
     document.getElementById('icon-2').style.opacity = 1
-  } else if (routeName == 'perfil' || routeName == 'Historico') {
+  } else if (routeName == 'perfil' || routeName == 'historico') {
     document.getElementById('icon-1').style.opacity = 1
   } else if (routeName == 'listapremios' || routeName == 'premio') {
     document.getElementById('icon-3').style.opacity = 1
