@@ -14,10 +14,21 @@ export default {
       idpremio: localStorage.getItem('idPremio'),
       premios: [],
       email: sessionStorage.getItem('email'),
-      dataFormatada: ''
+      dataFormatada: '',
+      premioEscolhido: []
     }
   },
   methods: {
+    escolherPremio: function () {
+      this.premios.forEach((premio) => {
+        console.log(premio)
+        console.log(premio.id)
+        if (premio.id == this.idpremio) {
+          this.premioEscolhido.push(premio)
+          console.log(premio)
+        }
+      })
+    },
     formatarData: function () {
       const hoje = new Date()
       const dia = hoje.getDate().toString().padStart(2, '0')
@@ -27,6 +38,7 @@ export default {
     },
     trocar: function () {
       const premioEsc = this.premios.find((premio) => premio.id == this.idpremio)
+      console.log(premioEsc)
       this.utilizadores.forEach((utilizador) => {
         if (utilizador.email == this.email) {
           if (premioEsc && Number(utilizador.pontos) >= Number(premioEsc.creditos)) {
@@ -57,6 +69,7 @@ export default {
   },
 
   mounted() {
+    this.escolherPremio()
     this.formatarData()
     fetch('/premios.json')
       .then((response) => response.json())
@@ -74,6 +87,22 @@ export default {
   <div class="container pb-4">
     <h1>Premio</h1>
   </div>
+  <b-card class="mb-4">
+    <b-card-header class="text-center header">
+      <b-img
+        :src="premioEscolhido.imagem"
+        alt="Imagem do perfil"
+        rounded="circle"
+        class="image"
+      ></b-img>
+    </b-card-header>
+
+    <b-card-body class="text-center">
+      <h1 class="name">{{ premioEscolhido.nome }}</h1>
+      <p>{{ premioEscolhido.creditos }}</p>
+      <p>{{ premioEscolhido.tipo }}</p>
+    </b-card-body>
+  </b-card>
   <div id="butoes" class="d-flex fixed-bottom container">
     <b-button
       title="trocar"

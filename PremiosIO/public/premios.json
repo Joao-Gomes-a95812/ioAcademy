@@ -4,133 +4,155 @@
       "id": 1,
       "nome": "Bluetooth Speaker",
       "creditos": 1500,
-      "tipo": "Eletrônicos"
+      "tipo": "Eletrônicos",
+      "imagem": "https://www.example.com/images/bluetooth-speaker.jpg"
     },
     {
       "id": 2,
       "nome": "Wireless Headphones",
       "creditos": 3000,
-      "tipo": "Eletrônicos"
+      "tipo": "Eletrônicos",
+      "imagem": "https://www.example.com/images/wireless-headphones.jpg"
     },
     {
       "id": 3,
       "nome": "Smartwatch",
       "creditos": 5000,
-      "tipo": "Eletrônicos"
+      "tipo": "Eletrônicos",
+      "imagem": "https://www.example.com/images/smartwatch.jpg"
     },
     {
       "id": 4,
       "nome": "Robot Vacuum Cleaner",
       "creditos": 7000,
-      "tipo": "Eletrodomésticos"
+      "tipo": "Eletrodomésticos",
+      "imagem": "https://www.example.com/images/robot-vacuum-cleaner.jpg"
     },
     {
       "id": 5,
       "nome": "4K Smart TV 55\"",
       "creditos": 10000,
-      "tipo": "Eletrônicos"
+      "tipo": "Eletrônicos",
+      "imagem": "https://www.example.com/images/4k-smart-tv.jpg"
     },
     {
       "id": 6,
       "nome": "Instant Pot",
       "creditos": 2000,
-      "tipo": "Eletrodomésticos"
+      "tipo": "Eletrodomésticos",
+      "imagem": "https://www.example.com/images/instant-pot.jpg"
     },
     {
       "id": 7,
       "nome": "Air Fryer",
       "creditos": 2500,
-      "tipo": "Eletrodomésticos"
+      "tipo": "Eletrodomésticos",
+      "imagem": "https://www.example.com/images/air-fryer.jpg"
     },
     {
       "id": 8,
       "nome": "Espresso Machine",
       "creditos": 4000,
-      "tipo": "Eletrodomésticos"
+      "tipo": "Eletrodomésticos",
+      "imagem": "https://www.example.com/images/espresso-machine.jpg"
     },
     {
       "id": 9,
       "nome": "Portable Projector",
       "creditos": 6000,
-      "tipo": "Eletrônicos"
+      "tipo": "Eletrônicos",
+      "imagem": "https://www.example.com/images/portable-projector.jpg"
     },
     {
       "id": 10,
       "nome": "Gaming Console (PS5/Xbox Series X)",
       "creditos": 12000,
-      "tipo": "Eletrônicos"
+      "tipo": "Eletrônicos",
+      "imagem": "https://www.example.com/images/gaming-console.jpg"
     },
     {
       "id": 11,
       "nome": "High-End Gaming PC",
       "creditos": 15000,
-      "tipo": "Eletrônicos"
+      "tipo": "Eletrônicos",
+      "imagem": "https://www.example.com/images/gaming-pc.jpg"
     },
     {
       "id": 12,
       "nome": "Tablet",
       "creditos": 3500,
-      "tipo": "Eletrônicos"
+      "tipo": "Eletrônicos",
+      "imagem": "https://www.example.com/images/tablet.jpg"
     },
     {
       "id": 13,
       "nome": "Laptop",
       "creditos": 8000,
-      "tipo": "Eletrônicos"
+      "tipo": "Eletrônicos",
+      "imagem": "https://www.example.com/images/laptop.jpg"
     },
     {
       "id": 14,
       "nome": "Digital Camera",
       "creditos": 5500,
-      "tipo": "Eletrônicos"
+      "tipo": "Eletrônicos",
+      "imagem": "https://www.example.com/images/digital-camera.jpg"
     },
     {
       "id": 15,
       "nome": "Electric Scooter",
       "creditos": 4500,
-      "tipo": "Transporte"
+      "tipo": "Transporte",
+      "imagem": "https://www.example.com/images/electric-scooter.jpg"
     },
     {
       "id": 16,
       "nome": "Fitness Tracker",
       "creditos": 1000,
-      "tipo": "Eletrônicos"
+      "tipo": "Eletrônicos",
+      "imagem": "https://www.example.com/images/fitness-tracker.jpg"
     },
     {
       "id": 17,
       "nome": "Coffee Maker",
       "creditos": 1500,
-      "tipo": "Eletrodomésticos"
+      "tipo": "Eletrodomésticos",
+      "imagem": "https://www.example.com/images/coffee-maker.jpg"
     },
     {
       "id": 18,
       "nome": "Blender",
       "creditos": 1800,
-      "tipo": "Eletrodomésticos"
+      "tipo": "Eletrodomésticos",
+      "imagem": "https://www.example.com/images/blender.jpg"
     },
     {
       "id": 19,
       "nome": "Electric Kettle",
       "creditos": 800,
-      "tipo": "Eletrodomésticos"
+      "tipo": "Eletrodomésticos",
+      "imagem": "https://www.example.com/images/electric-kettle.jpg"
     },
     {
       "id": 20,
       "nome": "Toaster",
       "creditos": 500,
-      "tipo": "Eletrodomésticos"
+      "tipo": "Eletrodomésticos",
+      "imagem": "https://www.example.com/images/toaster.jpg"
     },
     {
       "id": 21,
       "nome": "Iron",
       "creditos": 600,
-      "tipo": "Eletrodomésticos"
+      "tipo": "Eletrodomésticos",
+      "imagem": "https://www.example.com/images/iron.jpg"
     },
     {
       "id": 22,
       "nome": "Vacuum Cleaner",
       "creditos": 2800,
-      "tipo": "Eletrodomésticos"
+      "tipo": "Eletrodomésticos",
+      "imagem": "https://www.example.com/images/vacuum-cleaner.jpg"
     }
   ]
 }

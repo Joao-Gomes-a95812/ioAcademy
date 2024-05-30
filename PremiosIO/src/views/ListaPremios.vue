@@ -113,13 +113,14 @@ h1 {
   margin-top: 6rem;
   font-style: normal;
   font-weight: 700;
-  font-size: 1.4rem;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
+#tipoChoice {
+  font-size: 1.3rem;
+}
 #tipo label {
   font-size: 1.6rem;
 }
