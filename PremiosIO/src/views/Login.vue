@@ -1,44 +1,49 @@
 <script setup>
 import router from '@/router'
+
+let callback = async (response) => {
+  if (response.credential) {
+    // Decode the JWT
+    const base64Url = response.credential.split('.')[1]
+    const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/')
+    const payload = JSON.parse(window.atob(base64))
+
+    // Verify the JWT
+    if (
+      payload.aud === '415034066399-imnm6opf083t2dptfdvratlgp6p89tfh.apps.googleusercontent.com'
+    ) {
+      const gestores = JSON.parse(localStorage.getItem('GESTORES'))
+      gestores.forEach((gestor) => {
+        if (gestor.email == payload.email) {
+          sessionStorage.setItem('nome', payload.name)
+          sessionStorage.setItem('email', payload.email)
+          sessionStorage.setItem('imagem', payload.picture)
+          router.push('/home')
+        }
+      })
+    } else {
+      console.log('JWT is not valid.')
+    }
+  } else {
+    // The login was not successful
+    console.error('Google Sign-In error:', response)
+  }
+}
 </script>
 
 <template>
   <div class="text-center mt-5" id="img">
-    <img src=" ../assets/logo.png" class="object-fit-cover" id="logo" alt="image" />
+    <img src=" ../assets/fnac.png" class="object-fit-cover" id="logo" alt="image" />
   </div>
   <div class="b-container mt-3">
     <form>
-      <div class="text-center mb-3 mt-2">
-        <h1>Login</h1>
-      </div>
-      <div class="form-group mb-2">
-        <label for="InputEmail">Email address</label>
-        <input
-          type="email"
-          class="form-control"
-          id="InputEmail"
-          aria-describedby="emailHelp"
-          placeholder=""
-        />
-        <small id="emailHelp" class="form-text text-muted"
-          >We'll never share your email with anyone else.</small
-        >
-      </div>
-      <div class="form-group mb-2">
-        <label for="InputPassword">Password</label>
-        <input type="password" class="form-control" id="InputPassword" placeholder="" />
-      </div>
-      <div class="form-group form-check mt-2 d-flex flex-row-reverse align-center">
-        <input type="checkbox" class="form-check-input m-1" id="Check" />
-        <label class="form-check-label" for="Check">Check me out</label>
-      </div>
       <div class="d-flex flex-row-reverse mt-4">
         <button
           type="submit"
           class="btn btn-success position-relative py-2 px-4 rounded-pill"
           id="bora"
         >
-          BORA!
+          Login por Google
         </button>
       </div>
     </form>
@@ -70,9 +75,6 @@ form {
   box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
-#id {
-  margin-right: 1rem;
-}
 span {
   margin-left: 1rem;
   font-size: 1.2rem;
@@ -91,14 +93,5 @@ span {
 .google-sing-in {
   background: #232d2b;
   border-radius: 2rem;
-}
-
-#InputPassword,
-#InputEmail {
-  border: none;
-  border-radius: 0;
-  background: none;
-  border-bottom: 0.01rem solid #1e1e1e;
-  box-shadow: none;
 }
 </style>

@@ -1,12 +1,19 @@
 <script setup>
-
+import Navbar from '@/components/Nav_Bar.vue'
 </script>
 
+<script>
+export default {
+  name: 'Home',
+  components: { Navbar }
+}
+</script>
 
 <template>
-    <div class="container pb-4">
-      <h1>Atividades Abertas</h1>
-    </div>
+  <div class="container pb-4">
+    <h1>Atividades Abertas</h1>
+  </div>
+  <Navbar class="fixed-bottom pb-4 p-1"></Navbar>
 </template>
 <style scoped>
 h1 {
@@ -17,6 +24,4 @@ h1 {
   font-weight: 700;
   font-size: 2rem;
 }
-
-
 </style>

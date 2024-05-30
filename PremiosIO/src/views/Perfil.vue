@@ -1,62 +1,73 @@
 <script setup>
-import router from "@/router";
+import router from '@/router'
+import Navbar from '@/components/Nav_Bar.vue'
 
 function rota() {
-  router.push("/historico");
+  router.push('/historico')
 }
 </script>
 
 <script>
 export default {
   name: 'Perfil',
+  components: { Navbar },
   data() {
     return {
       user: {
-        name: 'Nome do Utilizador',
-        email: 'email@exemplo.com',
-        image: " ../assets/logo.png" ,
+        name: '',
+        email: '',
+        image: '',
         points: 120,
         address: 'Rua Exemplo, 123, Cidade, País'
       }
     }
+  },
+  mounted() {
+    this.user.name = sessionStorage.getItem('nome')
+    this.user.email = sessionStorage.getItem('email')
+    this.user.image = sessionStorage.getItem('imagem')
   }
 }
 </script>
 
 <template>
-    <b-container class="profile-container">
-      <b-row>
-        <b-col cols="12" class="text-center profile-header">
-          <b-img :src="user.image" alt="Imagem do perfil" rounded="circle" class="profile-image"></b-img>
-          <h1 class="profile-name">{{ user.name }}</h1>
-          <p class="profile-email">{{ user.email }}</p>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col cols="12" class="text-center">
-          <b-badge variant="info" class="profile-points">Pontos: {{ user.points }}</b-badge>
-        </b-col>
-      </b-row>
-      <b-row>
-        <b-col cols="12" class="profile-address">
-          <h4>Endereço de Entrega:</h4>
-          <p>{{ user.address }}</p>
-        </b-col>
-      </b-row>
-    </b-container>
-    <div id="butoes" class="d-flex fixed-bottom container">
+  <b-container class="profile-container">
+    <b-row>
+      <b-col cols="12" class="text-center profile-header">
+        <b-img
+          :src="user.image"
+          alt="Imagem do perfil"
+          rounded="circle"
+          class="profile-image"
+        ></b-img>
+        <h1 class="profile-name">{{ user.name }}</h1>
+        <p class="profile-email">{{ user.email }}</p>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col cols="12" class="text-center">
+        <b-badge variant="info" class="profile-points">Pontos: {{ user.points }}</b-badge>
+      </b-col>
+    </b-row>
+    <b-row>
+      <b-col cols="12" class="profile-address">
+        <h4>Endereço de Entrega:</h4>
+        <p>{{ user.address }}</p>
+      </b-col>
+    </b-row>
+  </b-container>
+  <div id="butoes" class="d-flex fixed-bottom container">
     <b-button
-      title="registo"
+      title="historico"
       class="btn btn-success rounded-pill"
       :onclick="() => rota()"
-      id="registo"
-      >Registo</b-button
+      id="historico"
+      >Historico</b-button
     >
   </div>
-  </template>
- 
-  
- 
+  <Navbar class="fixed-bottom pb-4 p-1"></Navbar>
+</template>
+
 <style scoped>
 .profile-container {
   max-width: 600px;
@@ -75,11 +86,11 @@ export default {
   width: 8rem;
   height: 8rem;
   object-fit: cover;
-  border: 3px solid #007bff;
+  border: 3px solid #d76700;
 }
 
 .profile-name {
-  color: #007bff;
+  color: #d76700;
   font-weight: bold;
   margin-top: 1rem;
 }
@@ -103,9 +114,9 @@ export default {
   color: #495057;
 }
 
-#registo {
-  border: rgba(138, 87, 51, 1);
-  background: rgba(138, 87, 51, 1);
+#historico {
+  border: rgb(0, 0, 0);
+  background: rgb(0, 0, 0);
   color: #f5f5f5;
   text-shadow: #1e1e1e;
   border-radius: 0.3125rem;
@@ -116,4 +127,3 @@ export default {
   left: 14rem;
 }
 </style>
-  
