@@ -13,7 +13,7 @@ export default {
   components: { Navbar },
   data() {
     return {
-      user: {
+      utilizador: {
         name: '',
         email: '',
         image: '',
@@ -24,36 +24,36 @@ export default {
   },
   methods: {},
   mounted() {
-    this.user.name = sessionStorage.getItem('nome')
-    this.user.email = sessionStorage.getItem('email')
-    this.user.image = sessionStorage.getItem('imagem')
+    this.utilizador.name = sessionStorage.getItem('nome')
+    this.utilizador.email = sessionStorage.getItem('email')
+    this.utilizador.image = sessionStorage.getItem('imagem')
   }
 }
 </script>
 
 <template>
-  <b-container class="profile-container">
+  <b-container class="profile-container mt-4">
     <b-row>
       <b-col cols="12" class="text-center profile-header">
         <b-img
-          :src="user.image"
+          :src="utilizador.image"
           alt="Imagem do perfil"
           rounded="circle"
           class="profile-image"
         ></b-img>
-        <h1 class="profile-name">{{ user.name }}</h1>
-        <p class="profile-email">{{ user.email }}</p>
+        <h1 class="profile-name">{{ utilizador.name }}</h1>
+        <p class="profile-email">{{ utilizador.email }}</p>
       </b-col>
     </b-row>
     <b-row>
       <b-col cols="12" class="text-center">
-        <b-badge variant="info" class="profile-points">Pontos: {{ user.points }}</b-badge>
+        <b-badge variant="info" class="profile-points">Pontos: {{ utilizador.points }}</b-badge>
       </b-col>
     </b-row>
     <b-row>
       <b-col cols="12" class="profile-address">
         <h4>Endereço de Entrega:</h4>
-        <p>{{ user.address }}</p>
+        <p>{{ utilizador.address }}</p>
       </b-col>
     </b-row>
   </b-container>
@@ -125,6 +125,6 @@ export default {
   margin-bottom: 9rem;
   font-size: 1.2rem;
   min-width: 8rem;
-  left: 14rem;
+  left: 13rem;
 }
 </style>

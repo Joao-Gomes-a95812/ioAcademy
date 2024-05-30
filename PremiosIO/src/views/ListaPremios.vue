@@ -1,15 +1,18 @@
 <script setup>
 import router from '@/router'
 import Navbar from '@/components/Nav_Bar.vue'
+import Premios from '@/components/Premios.vue'
 </script>
 
 <script>
 export default {
   name: 'ListaPremios',
-  components: { Navbar },
+  components: { Navbar, Premios },
   data() {
     return {
-      premios: null
+      premios: [],
+      tipoSelecionado: '',
+      tipos: []
     }
   },
   methods: {
@@ -23,6 +26,7 @@ export default {
       .then((response) => response.json())
       .then((json) => {
         this.premios = json.premios
+        this.tipos = [...new Set(this.premios.map((premio) => premio.tipo))]
       })
       .catch((error) => {
         console.error('Error fetching the JSON data:', error)
@@ -32,8 +36,15 @@ export default {
 </script>
 
 <template>
-  <div class="container text-left">
-    <h1>Prémios</h1>
+  <Premios class="fixed-top"></Premios>
+  <div id="tipo" class="form-group">
+    <label for="cargosChoice">Pesquisar por tipo:</label>
+    <select id="tipoChoice">
+      <option value="" selected disabled></option>
+      <option v-for="tipo in tipos" :key="tipo" :value="tipo">
+        {{ tipo }}
+      </option>
+    </select>
   </div>
   <div id="listaPremios">
     <div class="d-flex flex-column gap-4 mt-3">
@@ -65,7 +76,8 @@ h1 {
 }
 
 .container-fluid {
-  border-radius: 1rem;
+  border-radius: 0rem;
+  width: 100%;
 }
 .list {
   text-align: left;
@@ -84,6 +96,7 @@ h1 {
 #listaPremios {
   max-height: 27rem;
   overflow-y: auto;
+  margin-top: 2rem;
 }
 
 #informacao {
@@ -91,5 +104,23 @@ h1 {
   justify-content: center;
   text-align: left;
   margin: 0.5rem;
+}
+
+#tipo {
+  color: #d76700;
+  text-align: center;
+  font-family: Helvetica;
+  margin-top: 6rem;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#tipo label {
+  font-size: 1.6rem;
 }
 </style>

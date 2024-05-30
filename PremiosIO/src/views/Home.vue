@@ -17,11 +17,12 @@ export default {
 </template>
 <style scoped>
 h1 {
-  padding-top: 6rem;
-  padding-left: 0.3rem;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.32);
+  font-size: 2rem;
+  color: #d76700;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Helvetica;
   font-style: normal;
   font-weight: 700;
-  font-size: 2rem;
+  line-height: normal;
 }
 </style>
