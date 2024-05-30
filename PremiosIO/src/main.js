@@ -11,7 +11,7 @@ import './assets/main.css'
 
 import vue3GoogleLogin from 'vue3-google-login'
 
-const authkey = '415034066399-imnm6opf083t2dptfdvratlgp6p89tfh.apps.googleusercontent.com'
+const authkey = '269884064871-omt2st9tga33d51cce11fh0s7ea5mmup.apps.googleusercontent.com'
 
 const app = createApp(App)
 

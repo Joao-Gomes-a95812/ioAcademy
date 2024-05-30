@@ -79,13 +79,16 @@ export default {
   border: 3px solid #d76700;
 }
 
-.name,
 .btn-editar {
   color: #d76700;
   font-weight: bold;
   margin-top: 1rem;
 }
 
+.name {
+  color: #d76700;
+  font-weight: bold;
+}
 .email {
   color: #6c757d;
   font-size: 1rem;
