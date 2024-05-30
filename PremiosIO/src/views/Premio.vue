@@ -85,7 +85,7 @@ export default {
 
 <template>
   <div class="container pb-4">
-    <h1>Premio</h1>
+    <h1>Informação do Prémio</h1>
   </div>
   <b-card class="mb-4">
     <b-card-header class="text-center header">
@@ -124,6 +124,8 @@ h1 {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  margin-top: 3.5rem;
+  text-align: center;
 }
 
 #trocar {

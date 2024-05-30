@@ -20,10 +20,7 @@ h1 {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
-  background-color: #1e1e1e;
-  box-shadow:
-    0px 4px 4px 0px rgba(0, 0, 0, 0.279),
-    0px 4px 4px 0px rgba(0, 0, 0, 0.279) inset;
+  background-color: #010101;
   height: 6.5rem;
 }
 </style>
