@@ -15,6 +15,15 @@ export default {
       tipos: []
     }
   },
+  computed: {
+    premiosSelecionados() {
+      if (this.tipoSelecionado === '') {
+        return this.premios
+      } else {
+        return this.premios.filter((premio) => premio.tipo == this.tipoSelecionado)
+      }
+    }
+  },
   methods: {
     rota: function (premio) {
       router.push('/premio')
@@ -35,8 +44,19 @@ export default {
         .catch((error) => {
           console.error('Error fetching the JSON data:', error)
         })
+    },
+    mudarCor: function () {
+      const selectElement = document.getElementById('tipoChoice')
+      if (this.tipoSelecionado !== '') {
+        selectElement.classList.remove('tipo-default')
+        selectElement.classList.add('tipo-selecionado')
+      } else {
+        selectElement.classList.remove('tipo-selecionado')
+        selectElement.classList.add('tipo-default')
+      }
     }
   },
+
   mounted() {
     this.getPremios()
   }
@@ -46,9 +66,9 @@ export default {
 <template>
   <Premios class="fixed-top"></Premios>
   <div id="tipo" class="form-group">
-    <label for="cargosChoice">Pesquisar por tipo:</label>
-    <select id="tipoChoice">
-      <option value="" selected disabled></option>
+    <label for="tipoChoice">Pesquisar por tipo:</label>
+    <select id="tipoChoice" v-model="tipoSelecionado">
+      <option value="" disabled>Selecione um tipo</option>
       <option v-for="tipo in tipos" :key="tipo" :value="tipo">
         {{ tipo }}
       </option>
@@ -56,7 +76,12 @@ export default {
   </div>
   <div id="listaPremios">
     <div class="d-flex flex-column gap-4 mt-3">
-      <div class="list" v-for="premio in premios" :key="premio.id" @click="rota(premio)">
+      <div
+        class="list"
+        v-for="premio in premiosSelecionados"
+        :key="premio.id"
+        @click="rota(premio)"
+      >
         <div id="informacao">
           <h4>{{ premio.nome }}</h4>
           <p>Creditos: {{ premio.creditos }}</p>
