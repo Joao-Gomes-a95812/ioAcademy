@@ -19,16 +19,24 @@ export default {
     }
   },
   methods: {
-    escolherPremio: function () {
-      this.premios.forEach((premio) => {
-        console.log(premio)
-        console.log(premio.id)
-        if (premio.id == this.idpremio) {
-          this.premioEscolhido.push(premio)
-          console.log(premio)
+    async getPremios() {
+      try {
+        const response = await fetch('/premios.json')
+        if (!response.ok) {
+          throw new Error('ERROR')
         }
-      })
+        const json = await response.json()
+        this.premios = json.premios
+      } catch (error) {
+        console.error('Error fetching the JSON data:', error)
+      }
     },
+
+    escolherPremio() {
+      this.premioEscolhido = this.premios.find((premio) => premio.id == this.idpremio)
+      console.log(this.premioEscolhido)
+    },
+
     formatarData: function () {
       const hoje = new Date()
       const dia = hoje.getDate().toString().padStart(2, '0')
@@ -36,14 +44,14 @@ export default {
       const ano = hoje.getFullYear()
       this.dataFormatada = `${dia}/${mes}/${ano}`
     },
+
     trocar: function () {
+      console.log(this.premios)
       const premioEsc = this.premios.find((premio) => premio.id == this.idpremio)
-      console.log(premioEsc)
       this.utilizadores.forEach((utilizador) => {
         if (utilizador.email == this.email) {
           if (premioEsc && Number(utilizador.pontos) >= Number(premioEsc.creditos)) {
             utilizador.pontos -= Number(premioEsc.creditos)
-            localStorage.setItem('Utilizadores', JSON.stringify(this.utilizadores))
             let historicoTrocas = this.trocas.find((troca) => troca.email == this.email)
             if (!historicoTrocas) {
               historicoTrocas = {
@@ -58,6 +66,7 @@ export default {
             historicoTrocas.pontosUsa.push(premioEsc.creditos)
             historicoTrocas.premio.push(premioEsc.nome)
 
+            localStorage.setItem('Utilizadores', JSON.stringify(this.utilizadores))
             localStorage.setItem('Historico', JSON.stringify(this.trocas))
           } else {
             console.error('Prêmio não encontrado ou pontos insuficientes')
@@ -69,16 +78,10 @@ export default {
   },
 
   mounted() {
-    this.escolherPremio()
-    this.formatarData()
-    fetch('/premios.json')
-      .then((response) => response.json())
-      .then((json) => {
-        this.premios = json.premios
-      })
-      .catch((error) => {
-        console.error('Error fetching the JSON data:', error)
-      })
+    this.getPremios().then(() => {
+      this.escolherPremio()
+      this.formatarData()
+    })
   }
 }
 </script>
@@ -98,17 +101,13 @@ export default {
     </b-card-header>
 
     <b-card-body class="text-center">
-      <h1 class="name">{{ premioEscolhido.nome }}</h1>
-      <p>{{ premioEscolhido.creditos }}</p>
-      <p>{{ premioEscolhido.tipo }}</p>
+      <h2 class="name">{{ premioEscolhido.nome }}</h2>
+      <p id="creditos">Creditos: {{ premioEscolhido.creditos }}</p>
+      <p>Tipo: {{ premioEscolhido.tipo }}</p>
     </b-card-body>
   </b-card>
   <div id="butoes" class="d-flex fixed-bottom container">
-    <b-button
-      title="trocar"
-      class="btn btn-success rounded-pill"
-      :onclick="() => trocar()"
-      id="trocar"
+    <b-button title="trocar" class="btn btn-success rounded-pill" @click="trocar" id="trocar"
       >Trocar</b-button
     >
   </div>
@@ -126,6 +125,24 @@ h1 {
   line-height: normal;
   margin-top: 3.5rem;
   text-align: center;
+}
+.header {
+  margin-bottom: 1rem;
+}
+.card {
+  max-height: 25rem;
+  font-size: 1.2rem;
+  margin: auto;
+  padding: 2rem;
+  background-color: #f5f5f5;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+h2 {
+  color: #ebb300;
+  font-weight: bold;
+  font-size: 1.7rem;
 }
 
 #trocar {

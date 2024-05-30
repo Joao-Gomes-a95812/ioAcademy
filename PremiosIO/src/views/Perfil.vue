@@ -1,10 +1,5 @@
 <script setup>
-import router from '@/router'
 import Navbar from '@/components/Nav_Bar.vue'
-
-function rota() {
-  router.push('/historico')
-}
 </script>
 
 <script>
@@ -65,11 +60,7 @@ export default {
       <b-button title="editar" class="btn btn-primary" @click="rota">Editar</b-button>
     </b-card-footer>
   </b-card>
-  <div id="butoes" class="d-flex justify-content-between fixed-bottom container">
-    <b-button title="historico" class="btn btn-success rounded-pill" @click="rota" id="historico"
-      >Histórico</b-button
-    >
-  </div>
+
   <Navbar class="fixed-bottom pb-4 p-1"></Navbar>
 </template>
 
@@ -97,14 +88,15 @@ export default {
 .name {
   color: #d76700;
   font-weight: bold;
+  font-size: 2rem;
 }
 .email {
   color: #6c757d;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .pontos {
-  font-size: 1rem;
+  font-size: 1.5rem;
   margin: 1rem 0;
 }
 
@@ -120,18 +112,5 @@ export default {
   box-shadow: none;
   font-size: 1.2rem;
   padding: 0.5rem 1rem;
-}
-
-#historico {
-  border: rgb(0, 0, 0);
-  background: rgb(0, 0, 0);
-  color: #f5f5f5;
-  text-shadow: #1e1e1e;
-  border-radius: 0.3125rem;
-  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
-  margin-bottom: 8rem;
-  font-size: 1.2rem;
-  min-width: 8rem;
-  left: 13rem;
 }
 </style>

@@ -19,18 +19,26 @@ export default {
     rota: function (premio) {
       router.push('/premio')
       localStorage.setItem('idPremio', JSON.stringify(premio.id))
+    },
+    getPremios: function () {
+      fetch('/premios.json')
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error('ERROR')
+          }
+          return response.json()
+        })
+        .then((json) => {
+          this.premios = json.premios
+          this.tipos = [...new Set(this.premios.map((premio) => premio.tipo))]
+        })
+        .catch((error) => {
+          console.error('Error fetching the JSON data:', error)
+        })
     }
   },
   mounted() {
-    fetch('/premios.json')
-      .then((response) => response.json())
-      .then((json) => {
-        this.premios = json.premios
-        this.tipos = [...new Set(this.premios.map((premio) => premio.tipo))]
-      })
-      .catch((error) => {
-        console.error('Error fetching the JSON data:', error)
-      })
+    this.getPremios()
   }
 }
 </script>
@@ -96,7 +104,7 @@ h1 {
 #listaPremios {
   max-height: 27rem;
   overflow-y: auto;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 
 #informacao {
@@ -119,9 +127,17 @@ h1 {
   align-items: center;
 }
 #tipoChoice {
+  margin-top: 1rem;
   font-size: 1.3rem;
 }
 #tipo label {
   font-size: 1.6rem;
+  color: #d76700;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Helvetica;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-align: center;
 }
 </style>
