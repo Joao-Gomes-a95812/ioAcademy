@@ -10,21 +10,26 @@ export default {
   data: function () {
     return {
       utilizadores: JSON.parse(localStorage.getItem('Utilizadores')),
-      idpremio: localStorage.getItem('idPremio')
+      idpremio: localStorage.getItem('idPremio'),
+      premios: [],
+      email: sessionStorage.getItem('email')
     }
   },
   methods: {
     trocar: function () {
       const premioEsc = this.premios.find((premio) => premio.id == this.idpremio)
-      if (premioEsc && this.utilizadores.pontos >= premioEsc.creditos) {
-        this.utilizadores.pontos = this.utilizadores.pontos - premioEsc.creditos
+      this.utilizadores.forEach((utilizador) => {
+        if (utilizador.email == this.email) {
+          if (premioEsc && Number(utilizador.pontos) >= Number(premioEsc.creditos)) {
+            utilizador.pontos = Number(utilizador.pontos) - Number(premioEsc.creditos)
+            localStorage.setItem('Utilizadores', JSON.stringify(this.utilizadores))
 
-        localStorage.setItem('Utilizadores', JSON.stringify(this.utilizadores))
-
-        router.push('/listapremios')
-      } else {
-        console.error('Prêmio não encontrado ou pontos insuficientes')
-      }
+            router.push('/listapremios')
+          } else {
+            console.error('Prêmio não encontrado ou pontos insuficientes')
+          }
+        }
+      })
     }
   },
 

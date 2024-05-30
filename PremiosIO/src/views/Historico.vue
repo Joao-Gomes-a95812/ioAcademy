@@ -1,5 +1,22 @@
 <script setup>
 import Navbar from '@/components/Nav_Bar.vue'
+
+const email = sessionStorage.getItem('email')
+let trocas = JSON.parse(localStorage.getItem('Historico'))
+
+let array = []
+
+trocas.forEach((troca) => {
+  if (troca.email == email) {
+    troca.premio.forEach((premio, index) => {
+      array.push({
+        premio: premio,
+        data: troca.data[index],
+        pontosUsados: troca.pontosUsa[index]
+      })
+    })
+  }
+})
 </script>
 
 <script>
@@ -10,18 +27,26 @@ export default {
 </script>
 
 <template>
-  <div class="container pb-4">
+  <div class="container text-left mt-5">
     <h1>Historico</h1>
+  </div>
+  <div class="container-fluid mt-5 bg-white p-1 text-center">
+    <b-table striped hover class="table-striped" :items="array"></b-table>
   </div>
   <Navbar class="fixed-bottom pb-4 p-1"></Navbar>
 </template>
+
 <style scoped>
+.container-fluid {
+  border-radius: 1rem;
+}
 h1 {
-  padding-top: 6rem;
-  padding-left: 0.3rem;
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.32);
+  font-size: 2.7rem;
+  color: #010101;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Helvetica;
   font-style: normal;
   font-weight: 700;
-  font-size: 2rem;
+  line-height: normal;
 }
 </style>
