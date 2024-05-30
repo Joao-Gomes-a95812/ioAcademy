@@ -4,154 +4,132 @@
       "id": 1,
       "nome": "Bluetooth Speaker",
       "creditos": 1500,
-      "quantidade": 5,
       "tipo": "Eletrônicos"
     },
     {
       "id": 2,
       "nome": "Wireless Headphones",
       "creditos": 3000,
-      "quantidade": 2,
       "tipo": "Eletrônicos"
     },
     {
       "id": 3,
       "nome": "Smartwatch",
       "creditos": 5000,
-      "quantidade": 3,
       "tipo": "Eletrônicos"
     },
     {
       "id": 4,
       "nome": "Robot Vacuum Cleaner",
       "creditos": 7000,
-      "quantidade": 2,
       "tipo": "Eletrodomésticos"
     },
     {
       "id": 5,
       "nome": "4K Smart TV 55\"",
       "creditos": 10000,
-      "quantidade": 1,
       "tipo": "Eletrônicos"
     },
     {
       "id": 6,
       "nome": "Instant Pot",
       "creditos": 2000,
-      "quantidade": 4,
       "tipo": "Eletrodomésticos"
     },
     {
       "id": 7,
       "nome": "Air Fryer",
       "creditos": 2500,
-      "quantidade": 3,
       "tipo": "Eletrodomésticos"
     },
     {
       "id": 8,
       "nome": "Espresso Machine",
       "creditos": 4000,
-      "quantidade": 2,
       "tipo": "Eletrodomésticos"
     },
     {
       "id": 9,
       "nome": "Portable Projector",
       "creditos": 6000,
-      "quantidade": 2,
       "tipo": "Eletrônicos"
     },
     {
       "id": 10,
       "nome": "Gaming Console (PS5/Xbox Series X)",
       "creditos": 12000,
-      "quantidade": 1,
       "tipo": "Eletrônicos"
     },
     {
       "id": 11,
       "nome": "High-End Gaming PC",
       "creditos": 15000,
-      "quantidade": 1,
       "tipo": "Eletrônicos"
     },
     {
       "id": 12,
       "nome": "Tablet",
       "creditos": 3500,
-      "quantidade": 4,
       "tipo": "Eletrônicos"
     },
     {
       "id": 13,
       "nome": "Laptop",
       "creditos": 8000,
-      "quantidade": 2,
       "tipo": "Eletrônicos"
     },
     {
       "id": 14,
       "nome": "Digital Camera",
       "creditos": 5500,
-      "quantidade": 3,
       "tipo": "Eletrônicos"
     },
     {
       "id": 15,
       "nome": "Electric Scooter",
       "creditos": 4500,
-      "quantidade": 3,
       "tipo": "Transporte"
     },
     {
       "id": 16,
       "nome": "Fitness Tracker",
       "creditos": 1000,
-      "quantidade": 6,
       "tipo": "Eletrônicos"
     },
     {
       "id": 17,
       "nome": "Coffee Maker",
       "creditos": 1500,
-      "quantidade": 5,
       "tipo": "Eletrodomésticos"
     },
     {
       "id": 18,
       "nome": "Blender",
       "creditos": 1800,
-      "quantidade": 4,
       "tipo": "Eletrodomésticos"
     },
     {
       "id": 19,
       "nome": "Electric Kettle",
       "creditos": 800,
-      "quantidade": 7,
       "tipo": "Eletrodomésticos"
     },
     {
       "id": 20,
       "nome": "Toaster",
       "creditos": 500,
-      "quantidade": 8,
       "tipo": "Eletrodomésticos"
     },
     {
       "id": 21,
       "nome": "Iron",
       "creditos": 600,
-      "quantidade": 7,
       "tipo": "Eletrodomésticos"
     },
     {
       "id": 22,
       "nome": "Vacuum Cleaner",
       "creditos": 2800,
-      "quantidade": 3,
       "tipo": "Eletrodomésticos"
     }
   ]

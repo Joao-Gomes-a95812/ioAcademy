@@ -30,7 +30,7 @@ export default {
   <div class="container text-left mt-5">
     <h1>Historico</h1>
   </div>
-  <div class="container-fluid mt-5 bg-white p-1 text-center">
+  <div class="container-fluid mt-5 bg-white p-1 text-center" id="listaTrocas">
     <b-table striped hover class="table-striped" :items="array"></b-table>
   </div>
   <Navbar class="fixed-bottom pb-4 p-1"></Navbar>
@@ -48,5 +48,10 @@ h1 {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+}
+
+#listaTrocas {
+  max-height: 27rem;
+  overflow-y: auto;
 }
 </style>

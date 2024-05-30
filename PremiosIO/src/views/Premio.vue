@@ -10,30 +10,54 @@ export default {
   data: function () {
     return {
       utilizadores: JSON.parse(localStorage.getItem('Utilizadores')),
+      trocas: JSON.parse(localStorage.getItem('Historico')),
       idpremio: localStorage.getItem('idPremio'),
       premios: [],
-      email: sessionStorage.getItem('email')
+      email: sessionStorage.getItem('email'),
+      dataFormatada: ''
     }
   },
   methods: {
+    formatarData: function () {
+      const hoje = new Date()
+      const dia = hoje.getDate().toString().padStart(2, '0')
+      const mes = (hoje.getMonth() + 1).toString().padStart(2, '0')
+      const ano = hoje.getFullYear()
+      this.dataFormatada = `${dia}/${mes}/${ano}`
+    },
     trocar: function () {
       const premioEsc = this.premios.find((premio) => premio.id == this.idpremio)
       this.utilizadores.forEach((utilizador) => {
         if (utilizador.email == this.email) {
           if (premioEsc && Number(utilizador.pontos) >= Number(premioEsc.creditos)) {
-            utilizador.pontos = Number(utilizador.pontos) - Number(premioEsc.creditos)
+            utilizador.pontos -= Number(premioEsc.creditos)
             localStorage.setItem('Utilizadores', JSON.stringify(this.utilizadores))
+            let historicoTrocas = this.trocas.find((troca) => troca.email == this.email)
+            if (!historicoTrocas) {
+              historicoTrocas = {
+                email: this.email,
+                data: [],
+                pontosUsa: [],
+                premio: []
+              }
+              this.trocas.push(historicoTrocas)
+            }
+            historicoTrocas.data.push(this.dataFormatada)
+            historicoTrocas.pontosUsa.push(premioEsc.creditos)
+            historicoTrocas.premio.push(premioEsc.nome)
 
-            router.push('/listapremios')
+            localStorage.setItem('Historico', JSON.stringify(this.trocas))
           } else {
             console.error('Prêmio não encontrado ou pontos insuficientes')
           }
         }
       })
+      router.push('/listapremios')
     }
   },
 
   mounted() {
+    this.formatarData()
     fetch('/premios.json')
       .then((response) => response.json())
       .then((json) => {
