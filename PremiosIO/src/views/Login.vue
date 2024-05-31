@@ -51,7 +51,7 @@ import { GoogleLogin } from 'vue3-google-login'
   padding: 2rem;
   padding-top: 2rem;
   border-radius: 2.1875rem;
-  background: #f5f5f5;
+  background-color: #ebb300;
   box-shadow: 1px 2px 2px 2px rgba(0, 0, 0, 0.25);
 }
 
@@ -59,9 +59,6 @@ import { GoogleLogin } from 'vue3-google-login'
   background: #232d2b;
   border-radius: 2rem;
   font-size: 1.5rem;
-  border: #ebb300;
-  background: #ebb300;
-  color: #f5f5f5;
   text-shadow: #1e1e1e;
   border-radius: 0.3125rem;
   box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);

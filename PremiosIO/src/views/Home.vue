@@ -40,6 +40,10 @@ export default {
         console.error('Error fetching the JSON data:', error)
       }
     },
+    rota2: function (premio) {
+      router.push('/premio')
+      localStorage.setItem('idPremio', JSON.stringify(premio.id))
+    },
 
     lista: function () {
       this.utilizadores.forEach((utilizador) => {
@@ -63,7 +67,7 @@ export default {
     <h2>{{ pontos }}</h2>
   </div>
   <div class="card-container">
-    <div class="card" v-for="premio in premiosFiltrados" :key="premio.id">
+    <div class="card" v-for="premio in premiosFiltrados" :key="premio.id" @click="rota2(premio)">
       <h3 class="card-header">Destaques</h3>
       <div class="card-body">
         <img :src="premio.imagem" alt="Imagem do prêmio" class="card-image" />

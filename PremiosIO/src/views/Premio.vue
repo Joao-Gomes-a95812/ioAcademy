@@ -34,7 +34,6 @@ export default {
 
     escolherPremio() {
       this.premioEscolhido = this.premios.find((premio) => premio.id == this.idpremio)
-      console.log(this.premioEscolhido)
     },
 
     formatarData: function () {

@@ -14,9 +14,9 @@ const select0 = () => {
   document.getElementById('icon-2').style.color = '#f5f5f5'
   document.getElementById('icon-3').style.color = '#f5f5f5'
 
-  if (routeName == 'home') {
+  if (routeName == 'home' || routeName == 'historico') {
     document.getElementById('icon-2').style.color = '#ebb300'
-  } else if (routeName == 'perfil' || routeName == 'historico') {
+  } else if (routeName == 'perfil') {
     document.getElementById('icon-1').style.color = '#ebb300'
   } else if (routeName == 'listapremios' || routeName == 'premio') {
     document.getElementById('icon-3').style.color = '#ebb300'

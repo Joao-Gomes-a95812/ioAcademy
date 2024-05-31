@@ -88,7 +88,7 @@ export default {
         <b-badge variant="warning" class="pontos">Pontos: {{ user.pontos }}</b-badge>
         <h4>Endereço de Entrega:</h4>
         <p>{{ user.morada }}</p>
-        <h5>Pais:</h5>
+        <h5>País:</h5>
         <p>{{ user.pais }}</p>
       </div>
     </b-card-body>
