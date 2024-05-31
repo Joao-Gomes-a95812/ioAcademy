@@ -1,35 +1,19 @@
-# PremiosIO
+localstorage
+key:Utilizadores
+value:[{"nome":"Pedro","email":"pedroabreufernandes1@gmail.com","morada":"Sa Carneiro, Bragança","pais":"Portugal","pontos":50000},{"nome":"Gabriel","email":"g3384170@gmail.com","morada":"Avenida da Dinastia de Bragança,Bragança","pais":"Portugal","pontos":89000}]
 
-This template should help get you started developing with Vue 3 in Vite.
+key:idPremio
+value:3
 
-## Recommended IDE Setup
+key:Historico
+value:[{"email":"pedroabreufernandes1@gmail.com","data":["30/05/2024","31/05/2024"],"pontosUsa":[7000,3000],"premio":["Robot Vacuum Cleaner","Wireless Headphones"]},{"email":"g3384170@gmail.com","data":["30/05/2024","30/05/2024","30/05/2024","30/05/2024","31/05/2024","31/05/2024","31/05/2024","31/05/2024","31/05/2024","31/05/2024","31/05/2024"],"pontosUsa":[5000,1500,1500,1500,3000,1500,1500,1500,5000,1500,4500],"premio":["Smartwatch","Bluetooth Speaker","Bluetooth Speaker","Bluetooth Speaker","Wireless Headphones","Bluetooth Speaker","Bluetooth Speaker","Bluetooth Speaker","Smartwatch","Bluetooth Speaker","Electric Scooter"]}]
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+sessionstorage
+key:nome
+value:gabriel
 
-## Customize configuration
+key:email
+value:g3384170@gmail.com
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+key:imagem
+value:https://lh3.googleusercontent.com/a/ACg8ocL-2g7t2eCNWOPMxY9EsbBb31uTKlZwy-v1zOF82jE8beNVCFU=s96-c

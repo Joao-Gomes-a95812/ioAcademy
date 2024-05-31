@@ -5,6 +5,10 @@ import Navbar from '@/components/Nav_Bar.vue'
 function rota() {
   router.push('/historico')
 }
+
+function rota3() {
+  router.push('/qrgenerator')
+}
 </script>
 
 <script>
@@ -80,6 +84,9 @@ export default {
     <b-button title="historico" class="btn btn-success rounded-pill" @click="rota" id="historico"
       >Histórico</b-button
     >
+    <b-button title="qrcode" class="btn btn-primary rounded-pill" @click="rota3" id="qrcode"
+      >QR Code</b-button
+    >
   </div>
   <Navbar class="fixed-bottom pb-4 p-1"></Navbar>
 </template>
@@ -127,6 +134,19 @@ h3 {
   font-size: 1.2rem;
   min-width: 8rem;
   left: 13rem;
+}
+
+#qrcode {
+  border: rgb(0, 0, 0);
+  background: rgb(0, 0, 0);
+  color: #f5f5f5;
+  text-shadow: #1e1e1e;
+  border-radius: 0.3125rem;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
+  margin-bottom: 9rem;
+  font-size: 1.2rem;
+  min-width: 8rem;
+  right: 13rem;
 }
 
 .card-container {
