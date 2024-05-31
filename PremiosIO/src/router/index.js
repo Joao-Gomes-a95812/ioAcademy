@@ -6,6 +6,7 @@ import Historico from '@/views/Historico.vue'
 import ListaPremios from '@/views/ListaPremios.vue'
 import Premio from '@/views/Premio.vue'
 import QRGenerator from '@/views/QRGenerator.vue'
+import Signin from '@/views/Signin.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -44,6 +45,11 @@ const router = createRouter({
       path: '/qrgenerator',
       name: 'qrgenerator',
       component: QRGenerator
+    },
+    {
+      path: '/signin',
+      name: 'signin',
+      component: Signin
     }
   ]
 })

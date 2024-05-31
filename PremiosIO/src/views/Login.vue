@@ -1,6 +1,10 @@
 <script setup>
 import router from '@/router'
 
+function rota() {
+  router.push('/signin')
+}
+
 let callback = async (response) => {
   if (!response.credential) {
     console.log('JWT is not valid.')
@@ -29,6 +33,9 @@ import { GoogleLogin } from 'vue3-google-login'
     <div class="text-center">
       <GoogleLogin :callback="callback" class="google-sign-in"> </GoogleLogin>
     </div>
+    <b-button title="signin" class="btn btn-primary rounded-pill" @click="rota" id="signin"
+      >SignIn</b-button
+    >
   </div>
 </template>
 
@@ -40,7 +47,17 @@ import { GoogleLogin } from 'vue3-google-login'
   border-radius: 1.7rem;
   box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
 }
-
+#signin {
+  border: rgb(0, 0, 0);
+  background: rgb(0, 0, 0);
+  color: #f5f5f5;
+  text-shadow: #1e1e1e;
+  border-radius: 0.3125rem;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.25);
+  font-size: 1rem;
+  min-width: 8rem;
+  margin-top: 2rem;
+}
 #login {
   color: #111111;
   flex-shrink: 0;

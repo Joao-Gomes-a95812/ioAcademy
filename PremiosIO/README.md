@@ -6,7 +6,7 @@ key:idPremio
 value:3
 
 key:Historico
-value:[{"email":"pedroabreufernandes1@gmail.com","data":["30/05/2024","31/05/2024"],"pontosUsa":[7000,3000],"premio":["Robot Vacuum Cleaner","Wireless Headphones"]}]
+value:[{"email":"g3384170@gmail.com","data":["30/05/2024","31/05/2024"],"pontosUsa":[7000,3000],"premio":["Robot Vacuum Cleaner","Wireless Headphones"]}]
 
 sessionstorage
 key:nome
