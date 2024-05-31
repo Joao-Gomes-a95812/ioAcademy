@@ -49,6 +49,8 @@ export default {
           pontosUsa: [],
           premio: []
         }
+        this.trocas.push(historicoTrocas)
+        this.utilizadores.push(utilizadorEsc)
       } else if (utilizadorEsc) {
         historicoTrocas = this.trocas.find((troca) => troca.email == novoUtilizador.email) || {
           email: novoUtilizador.email,
@@ -56,9 +58,8 @@ export default {
           pontosUsa: [],
           premio: []
         }
+        this.trocas.push(historicoTrocas)
       }
-      this.trocas.push(historicoTrocas)
-      this.utilizadores.push(utilizadorEsc)
       localStorage.setItem('Utilizadores', JSON.stringify(this.utilizadores))
       localStorage.setItem('Historico', JSON.stringify(this.trocas))
 
@@ -68,7 +69,7 @@ export default {
 
       this.$notify({
         group: 'foo',
-        title: 'Utilzador ' + novoUtilzador.nome + ' Registado!',
+        title: 'Utilzador ' + novoUtilizador.nome + ' Registado!',
         type: 'warn',
         duration: 5000
       })
