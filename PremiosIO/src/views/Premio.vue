@@ -157,4 +157,9 @@ h2 {
   min-width: 8rem;
   left: 13rem;
 }
+
+.image {
+  max-width: 8rem;
+  max-height: 8rem;
+}
 </style>

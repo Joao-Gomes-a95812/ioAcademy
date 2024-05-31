@@ -1,5 +1,6 @@
 <script setup>
 import router from '@/router'
+import { BCarousel, BCarouselSlide } from 'bootstrap-vue-3'
 import Navbar from '@/components/Nav_Bar.vue'
 
 function rota() {
@@ -18,7 +19,9 @@ export default {
       premioEscolhido: [],
       pontos: null,
       utilizadores: JSON.parse(localStorage.getItem('Utilizadores')),
-      email: sessionStorage.getItem('email')
+      email: sessionStorage.getItem('email'),
+      BCarousel,
+      BCarouselSlide
     }
   },
   methods: {
@@ -110,12 +113,12 @@ h2 {
   background-color: #010101;
 }
 .card {
-  max-height: 25rem;
+  max-height: 23rem;
   font-size: 1.2rem;
   margin: auto;
   padding: 2rem;
   background-color: #f5f5f5;
-  border-radius: 0.5rem;
+  border-radius: 1rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
@@ -136,5 +139,10 @@ h3 {
   font-size: 1.2rem;
   min-width: 8rem;
   left: 13rem;
+}
+
+.image {
+  max-width: 7rem;
+  max-height: 7rem;
 }
 </style>
