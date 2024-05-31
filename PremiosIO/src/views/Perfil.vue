@@ -92,7 +92,6 @@ export default {
         <p>{{ user.pais }}</p>
       </div>
     </b-card-body>
-
     <b-card-footer class="text-center footer">
       <div v-if="!editMode">
         <b-button id="editar" class="btn footer-btn" @click="toggleEditMode">Editar</b-button>
