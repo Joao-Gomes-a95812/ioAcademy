@@ -14,7 +14,7 @@ const select0 = () => {
   document.getElementById('icon-2').style.color = '#f5f5f5'
   document.getElementById('icon-3').style.color = '#f5f5f5'
 
-  if (routeName == 'home' || routeName == 'historico') {
+  if (routeName == 'home' || routeName == 'historico' || routeName == 'qrgenerator') {
     document.getElementById('icon-2').style.color = '#ebb300'
   } else if (routeName == 'perfil') {
     document.getElementById('icon-1').style.color = '#ebb300'
