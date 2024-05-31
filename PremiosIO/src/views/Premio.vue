@@ -129,11 +129,11 @@ h1 {
   margin-bottom: 1rem;
 }
 .card {
-  max-height: 25rem;
+  height: 24rem;
   font-size: 1.2rem;
   margin: auto;
   padding: 2rem;
-  background-color: #f5f5f5;
+  background-color: #f2f7bfb3;
   border-radius: 0.5rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }

@@ -139,7 +139,7 @@ h3 {
   border-radius: 0.5rem;
   height: 20rem;
   font-size: 1.2rem;
-  background-color: #f5f5f5;
+  background-color: #f2f7bfb3;
   border-radius: 1rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }

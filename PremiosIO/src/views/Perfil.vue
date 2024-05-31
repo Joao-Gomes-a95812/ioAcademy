@@ -104,11 +104,8 @@ export default {
 </template>
 
 <style scoped>
-.profile-card {
-  max-width: 600px;
-  margin: auto;
-  padding: 2rem;
-  background-color: #f5f5f5;
+.card {
+  background-color: #f2f7bfb3;
   border-radius: 0.5rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
@@ -153,7 +150,7 @@ export default {
   border: none;
   width: 5rem;
   height: 2.7rem;
-  margin-right: 1.5rem;
-  margin-left: 1.5rem;
+  margin-right: 1.2rem;
+  margin-left: 1.2rem;
 }
 </style>

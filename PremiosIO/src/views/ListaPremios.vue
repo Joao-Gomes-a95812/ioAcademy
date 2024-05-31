@@ -115,7 +115,7 @@ h1 {
 .list {
   text-align: left;
   text-indent: 1rem;
-  background: rgba(245, 245, 245, 0.63);
+  background-color: #f2f7bfb3;
   list-style-type: none;
   color: #1e1e1e;
   font-size: 1.1rem;
