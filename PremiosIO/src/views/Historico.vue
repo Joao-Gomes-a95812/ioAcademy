@@ -48,6 +48,8 @@ h1 {
   font-style: normal;
   font-weight: 700;
   line-height: normal;
+  margin-top: 3.5rem;
+  text-align: center;
 }
 
 #listaTrocas {

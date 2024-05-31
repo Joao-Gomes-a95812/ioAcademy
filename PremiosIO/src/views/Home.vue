@@ -24,6 +24,12 @@ export default {
       BCarouselSlide
     }
   },
+  computed: {
+    premiosFiltrados() {
+      const idsFiltrados = [10, 11, 13]
+      return this.premios.filter((premio) => idsFiltrados.includes(premio.id))
+    }
+  },
   methods: {
     async getPremios() {
       try {
@@ -38,9 +44,6 @@ export default {
       }
     },
 
-    escolherPremio() {
-      this.premioEscolhido = this.premios.find((premio) => premio.id == this.idpremio)
-    },
     lista: function () {
       this.utilizadores.forEach((utilizador) => {
         if (utilizador.email == this.email) {
@@ -51,7 +54,6 @@ export default {
   },
   mounted() {
     this.getPremios().then(() => {
-      this.escolherPremio()
       this.lista()
     })
   }
@@ -63,19 +65,16 @@ export default {
     <h1>Os Teus Pontos:</h1>
     <h2>{{ pontos }}</h2>
   </div>
-  <b-card class="mb-4">
-    <b-card-header id="header" class="text-center header"> <h3>Destaques</h3> </b-card-header>
-
-    <b-card-body class="text-center">
-      <h4 class="name">{{ premioEscolhido.nome }}</h4>
-      <b-img
-        :src="premioEscolhido.imagem"
-        alt="Imagem do perfil"
-        rounded="circle"
-        class="image"
-      ></b-img>
-    </b-card-body>
-  </b-card>
+  <div class="card-container">
+    <div class="card" v-for="premio in premiosFiltrados" :key="premio.id">
+      <h3 class="card-header">Destaques</h3>
+      <div class="card-body">
+        <img :src="premio.imagem" alt="Imagem do prêmio" class="card-image" />
+        <h4 class="card-title">{{ premio.nome }}</h4>
+        <p class="card-text">{{ premio.creditos }} créditos</p>
+      </div>
+    </div>
+  </div>
   <div id="butoes" class="d-flex justify-content-between fixed-bottom container">
     <b-button title="historico" class="btn btn-success rounded-pill" @click="rota" id="historico"
       >Histórico</b-button
@@ -108,24 +107,12 @@ h2 {
   margin-bottom: 1.5rem;
 }
 
-.header {
-  margin-bottom: 1rem;
-  background-color: #010101;
-}
-.card {
-  max-height: 23rem;
-  font-size: 1.2rem;
-  margin: auto;
-  padding: 2rem;
-  background-color: #f5f5f5;
-  border-radius: 1rem;
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-}
-
 h3 {
   color: #ebb300;
   font-weight: bold;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
+  background-color: #010101;
+  margin-top: 1rem;
 }
 
 #historico {
@@ -141,8 +128,38 @@ h3 {
   left: 13rem;
 }
 
-.image {
-  max-width: 7rem;
-  max-height: 7rem;
+.card-container {
+  display: flex;
+  overflow-x: auto;
+}
+
+.card {
+  justify-content: center;
+  text-align: center;
+  flex: 0 0 auto;
+  width: 15rem;
+  margin-right: 1rem;
+  border-radius: 0.5rem;
+  height: 20rem;
+  font-size: 1.2rem;
+  background-color: #f5f5f5;
+  border-radius: 1rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.card-image {
+  width: 7rem;
+  height: 7rem;
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+.card-title {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
+.card-text {
+  font-size: 1rem;
 }
 </style>

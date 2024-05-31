@@ -56,8 +56,9 @@ export default {
       <p>{{ user.pais }}</p>
     </b-card-body>
 
-    <b-card-footer class="text-center">
-      <b-button title="editar" class="btn btn-primary" @click="rota">Editar</b-button>
+    <b-card-footer class="text-center footer">
+      <b-button id="editar" class="btn footer-btn" @click="rota">Editar</b-button>
+      <b-button id="LogOut" class="btn footer-btn" @click="rota">LogOut</b-button>
     </b-card-footer>
   </b-card>
 
@@ -100,17 +101,20 @@ export default {
   margin: 1rem 0;
 }
 
-.btn-editar {
-  color: #d76700;
+.footer {
   font-weight: bold;
   margin-top: 1rem;
-  border: none;
-  background: #d76700;
-  color: #f5f5f5;
-  text-shadow: none;
   border-radius: 0.3125rem;
-  box-shadow: none;
-  font-size: 1.2rem;
-  padding: 0.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.footer-btn {
+  background: #d76700;
+  color: #fff;
+  border: none;
+  width: 5rem;
+  height: 2.7rem;
 }
 </style>

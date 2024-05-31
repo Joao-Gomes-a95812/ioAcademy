@@ -159,7 +159,7 @@ h2 {
 }
 
 .image {
-  max-width: 8rem;
-  max-height: 8rem;
+  width: 8rem;
+  height: 8rem;
 }
 </style>
