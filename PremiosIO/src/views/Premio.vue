@@ -73,6 +73,11 @@ export default {
         }
       })
       router.push('/listapremios')
+      this.$notify({
+        group: 'foo',
+        title: 'Troca bem sucedida!',
+        duration: 5000
+      })
     }
   },
 

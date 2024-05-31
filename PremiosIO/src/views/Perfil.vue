@@ -52,6 +52,11 @@ export default {
         localStorage.setItem('Utilizadores', JSON.stringify(this.utilizadores))
       })
       this.editMode = false
+      this.$notify({
+        group: 'foo',
+        title: 'Edição bem sucedida!',
+        duration: 5000
+      })
     },
     cancelar: function () {
       this.editMode = false
@@ -109,7 +114,6 @@ export default {
   border-radius: 0.5rem;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
-
 .header {
   margin-bottom: 1rem;
 }

@@ -3,5 +3,5 @@ import { Icon } from '@iconify/vue'
 </script>
 
 <template>
-  <Icon icon="ion:gift-outline" width="50" :inline="true" :horizontal="true" />
+  <Icon icon="ion:gift-outline" width="40" :inline="true" :horizontal="true" />
 </template>
