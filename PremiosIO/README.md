@@ -1,12 +1,12 @@
 localstorage
 key:Utilizadores
-value:[{"nome":"Pedro","email":"pedroabreufernandes1@gmail.com","morada":"Sa Carneiro, Bragança","pais":"Portugal","pontos":50000},{"nome":"Gabriel","email":"g3384170@gmail.com","morada":"Avenida da Dinastia de Bragança,Bragança","pais":"Portugal","pontos":89000}]
+value:[{"nome":"Pedro","email":"pedroabreufernandes1@gmail.com","morada":"Sa Carneiro, Bragança","pais":"Portugal","pontos":50000},{"nome":"Gabriel","email":"g3384170@gmail.com","morada":"Avenida da Dinastia de Bragança,Bragança","pais":"Portugal","pontos":120000}]
 
 key:idPremio
 value:3
 
 key:Historico
-value:[{"email":"pedroabreufernandes1@gmail.com","data":["30/05/2024","31/05/2024"],"pontosUsa":[7000,3000],"premio":["Robot Vacuum Cleaner","Wireless Headphones"]},{"email":"g3384170@gmail.com","data":["30/05/2024","30/05/2024","30/05/2024","30/05/2024","31/05/2024","31/05/2024","31/05/2024","31/05/2024","31/05/2024","31/05/2024","31/05/2024"],"pontosUsa":[5000,1500,1500,1500,3000,1500,1500,1500,5000,1500,4500],"premio":["Smartwatch","Bluetooth Speaker","Bluetooth Speaker","Bluetooth Speaker","Wireless Headphones","Bluetooth Speaker","Bluetooth Speaker","Bluetooth Speaker","Smartwatch","Bluetooth Speaker","Electric Scooter"]}]
+value:[{"email":"pedroabreufernandes1@gmail.com","data":["30/05/2024","31/05/2024"],"pontosUsa":[7000,3000],"premio":["Robot Vacuum Cleaner","Wireless Headphones"]}]
 
 sessionstorage
 key:nome
