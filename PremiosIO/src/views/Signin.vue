@@ -79,7 +79,7 @@ export default {
 </script>
 <template>
   <div class="text-center mt-5" id="img">
-    <img src=" ../assets/fnac.png" class="object-fit-cover" id="logo" alt="image" />
+    <img src=" ../assets/imagem.png" class="object-fit-cover" id="logo" alt="image" />
   </div>
   <div class="b-container mt-3">
     <form>
