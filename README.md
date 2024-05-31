@@ -2,7 +2,7 @@
 
 localstorage
 key:Utilizadores
-value:[{"nome":"Pedro","email":"pedroabreufernandes1@gmail.com","morada":"Sa Carneiro, Bragança","pais":"Portugal","pontos":50000},{"nome":"Gabriel","email":"g3384170@gmail.com","morada":"Avenida da Dinastia de Bragança,Bragança","pais":"Portugal","pontos":120000}]
+value:[{"nome":"Gabriel","email":"g3384170@gmail.com","morada":"Avenida da Dinastia de Bragança,Bragança","pais":"Portugal","pontos":120000}]
 
 key:idPremio
 value:3
