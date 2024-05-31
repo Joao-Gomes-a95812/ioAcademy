@@ -46,7 +46,6 @@ export default {
     },
 
     trocar: function () {
-      console.log(this.premios)
       const premioEsc = this.premios.find((premio) => premio.id == this.idpremio)
       this.utilizadores.forEach((utilizador) => {
         if (utilizador.email == this.email) {

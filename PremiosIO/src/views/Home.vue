@@ -1,6 +1,5 @@
 <script setup>
 import router from '@/router'
-import { BCarousel, BCarouselSlide } from 'bootstrap-vue-3'
 import Navbar from '@/components/Nav_Bar.vue'
 
 function rota() {
@@ -19,14 +18,12 @@ export default {
       premioEscolhido: [],
       pontos: null,
       utilizadores: JSON.parse(localStorage.getItem('Utilizadores')),
-      email: sessionStorage.getItem('email'),
-      BCarousel,
-      BCarouselSlide
+      email: sessionStorage.getItem('email')
     }
   },
   computed: {
     premiosFiltrados() {
-      const idsFiltrados = [10, 11, 13]
+      const idsFiltrados = [10, 11, 3, 13]
       return this.premios.filter((premio) => idsFiltrados.includes(premio.id))
     }
   },

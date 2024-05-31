@@ -1,5 +1,6 @@
 <script setup>
 import Navbar from '@/components/Nav_Bar.vue'
+import router from '@/router'
 </script>
 
 <script>
@@ -17,22 +18,46 @@ export default {
         pais: null
       },
       utilizadores: JSON.parse(localStorage.getItem('Utilizadores')),
-      mail: sessionStorage.getItem('email')
+      mail: sessionStorage.getItem('email'),
+      editMode: false
     }
   },
   methods: {
     lista: function () {
       this.utilizadores.forEach((utilizador) => {
         if (utilizador.email == this.mail) {
+          this.user.name = utilizador.nome
           this.user.pontos = utilizador.pontos
           this.user.morada = utilizador.morada
           this.user.pais = utilizador.pais
         }
       })
+    },
+    logout: function () {
+      sessionStorage.removeItem('nome')
+      sessionStorage.removeItem('email')
+      sessionStorage.removeItem('imagem')
+      router.push('/')
+    },
+    toggleEditMode: function () {
+      this.editMode = !this.editMode
+    },
+    salvar: function () {
+      this.utilizadores.forEach((utilizador) => {
+        if (utilizador.email == this.mail) {
+          utilizador.nome = this.user.name
+          utilizador.morada = this.user.morada
+          utilizador.pais = this.user.pais
+        }
+        localStorage.setItem('Utilizadores', JSON.stringify(this.utilizadores))
+      })
+      this.editMode = false
+    },
+    cancelar: function () {
+      this.editMode = false
     }
   },
   mounted() {
-    this.user.name = sessionStorage.getItem('nome')
     this.user.email = sessionStorage.getItem('email')
     this.user.image = sessionStorage.getItem('imagem')
     this.lista()
@@ -47,18 +72,31 @@ export default {
     </b-card-header>
 
     <b-card-body class="text-center">
-      <h1 class="name">{{ user.name }}</h1>
-      <p class="email">{{ user.email }}</p>
-      <b-badge variant="warning" class="pontos">Pontos: {{ user.pontos }}</b-badge>
-      <h4>Endereço de Entrega:</h4>
-      <p>{{ user.morada }}</p>
-      <h5>Pais:</h5>
-      <p>{{ user.pais }}</p>
+      <div v-if="editMode">
+        <b-form-input v-model="user.name" placeholder="Nome"></b-form-input>
+        <b-form-input v-model="user.morada" placeholder="Morada"></b-form-input>
+        <b-form-input v-model="user.pais" placeholder="País"></b-form-input>
+      </div>
+      <div v-else>
+        <h1 class="name">{{ user.name }}</h1>
+        <p>{{ user.email }}</p>
+        <b-badge variant="warning" class="pontos">Pontos: {{ user.pontos }}</b-badge>
+        <h4>Endereço de Entrega:</h4>
+        <p>{{ user.morada }}</p>
+        <h5>Pais:</h5>
+        <p>{{ user.pais }}</p>
+      </div>
     </b-card-body>
 
     <b-card-footer class="text-center footer">
-      <b-button id="editar" class="btn footer-btn" @click="rota">Editar</b-button>
-      <b-button id="LogOut" class="btn footer-btn" @click="rota">LogOut</b-button>
+      <div v-if="!editMode">
+        <b-button id="editar" class="btn footer-btn" @click="toggleEditMode">Editar</b-button>
+        <b-button id="LogOut" class="btn footer-btn" @click="logout">LogOut</b-button>
+      </div>
+      <div v-if="editMode">
+        <b-button class="btn footer-btn" @click="salvar">Salvar</b-button>
+        <b-button class="btn footer-btn" @click="cancelar">Cancelar</b-button>
+      </div>
     </b-card-footer>
   </b-card>
 
@@ -107,7 +145,6 @@ export default {
   border-radius: 0.3125rem;
   display: flex;
   justify-content: center;
-  gap: 3rem;
 }
 
 .footer-btn {
@@ -116,5 +153,7 @@ export default {
   border: none;
   width: 5rem;
   height: 2.7rem;
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
 }
 </style>
